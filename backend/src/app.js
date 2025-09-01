@@ -12,6 +12,7 @@ const authRoutes = require("./routes/auth");
 const versionRoutes = require("./routes/versions");
 const dashboardRoutes = require("./routes/dashboard");
 const memberRoutes = require("./routes/members");
+const projectRoutes = require("./routes/projects");
 
 // 导入中间件
 const { errorHandler, requestLogger } = require("./middleware/auth");
@@ -72,6 +73,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/versions", versionRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/members", memberRoutes);
+app.use("/api/projects", projectRoutes);
 
 // 根路径
 app.get("/", (req, res) => {
@@ -84,6 +86,7 @@ app.get("/", (req, res) => {
       versions: "/api/versions",
       dashboard: "/api/dashboard",
       members: "/api/members",
+      projects: "/api/projects",
       health: "/health"
     }
   });
@@ -113,6 +116,7 @@ app.listen(PORT, () => {
   console.log(`   - 版本管理: http://localhost:${PORT}/api/versions`);
   console.log(`   - 仪表板: http://localhost:${PORT}/api/dashboard`);
   console.log(`   - 成员管理: http://localhost:${PORT}/api/members`);
+  console.log(`   - 项目管理: http://localhost:${PORT}/api/projects`);
   console.log(`   - 健康检查: http://localhost:${PORT}/health`);
 });
 
