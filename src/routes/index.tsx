@@ -1,15 +1,10 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+﻿import { createBrowserRouter, Navigate } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Dashboard from '../pages/Dashboard';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import VersionManagement from '../pages/VersionManagement';
-// import AccountManagement from '../pages/AccountManagement';
-// import ContentReview from '../pages/ContentReview';
-// import RegionManagement from '../pages/RegionManagement';
-// import DataAnalysis from '../pages/DataAnalysis';
-// import CommissionSettlement from '../pages/CommissionSettlement';
-// import OperationManagement from '../pages/OperationManagement';
+import MemberManagement from '../pages/MemberManagement';
 
 const router = createBrowserRouter([
   {
@@ -32,30 +27,10 @@ const router = createBrowserRouter([
         path: 'management/version-management',
         element: <VersionManagement />,
       },
-      // {
-      //   path: 'account-management',
-      //   element: <AccountManagement />,
-      // },
-      // {
-      //   path: 'content-review',
-      //   element: <ContentReview />,
-      // },
-      // {
-      //   path: 'region-management',
-      //   element: <RegionManagement />,
-      // },
-      // {
-      //   path: 'data-analysis',
-      //   element: <DataAnalysis />,
-      // },
-      // {
-      //   path: 'commission-settlement',
-      //   element: <CommissionSettlement />,
-      // },
-      // {
-      //   path: 'operation-management',
-      //   element: <OperationManagement />,
-      // },
+      {
+        path: 'management/result-management',
+        element: <MemberManagement />,
+      },
     ],
   },
   {
@@ -68,4 +43,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router; 
+export default router;
