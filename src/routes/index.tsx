@@ -5,6 +5,7 @@ import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import VersionManagement from '../pages/VersionManagement';
 import MemberManagement from '../pages/MemberManagement';
+import DevManagement from '../pages/DevManagement';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: 'management/result-management',
         element: <MemberManagement />,
+      },
+      {
+        path: 'management/dev-management',
+        element: <DevManagement />,
       },
     ],
   },

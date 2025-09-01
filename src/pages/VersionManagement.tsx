@@ -12,14 +12,13 @@ import {
   Input, 
   Select, 
   DatePicker, 
-  InputNumber, 
+ 
   Tabs, 
   Progress, 
   Timeline, 
   Descriptions,
   Alert,
-  Divider,
-  Tooltip,
+
   Badge
 } from 'antd';
 import { 
@@ -42,7 +41,7 @@ import type { ColumnsType } from 'antd/es/table';
 import type { TabsProps } from 'antd';
 
 const { TextArea } = Input;
-const { RangePicker } = DatePicker;
+
 const { Option } = Select;
 
 // 版本发布管理相关类型定义
@@ -338,8 +337,8 @@ const deploymentColumns: ColumnsType<DeploymentInfo> = [
 const VersionManagement = () => {
   const [isVersionModalVisible, setIsVersionModalVisible] = useState(false);
   const [isDeploymentModalVisible, setIsDeploymentModalVisible] = useState(false);
-  const [selectedVersion, setSelectedVersion] = useState<VersionInfo | null>(null);
-  const [selectedDeployment, setSelectedDeployment] = useState<DeploymentInfo | null>(null);
+  const [_selectedVersion, _setSelectedVersion] = useState<VersionInfo | null>(null);
+  const [_selectedDeployment, _setSelectedDeployment] = useState<DeploymentInfo | null>(null);
 
   // 版本发布管理标签页配置
   const versionTabs: TabsProps['items'] = [

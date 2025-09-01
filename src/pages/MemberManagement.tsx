@@ -11,17 +11,11 @@ import {
   Form, 
   Input, 
   Select, 
-  Switch, 
   Tabs, 
   Tree, 
-  Descriptions,
   Alert,
-  Divider,
-  Tooltip,
   Badge,
-  Avatar,
-  Transfer,
-  Checkbox
+  Avatar
 } from 'antd';
 import { 
   PlusOutlined, 
@@ -30,23 +24,20 @@ import {
   UserOutlined, 
   TeamOutlined, 
   SafetyOutlined, 
-  SettingOutlined,
-  BranchesOutlined,
   KeyOutlined,
   UserSwitchOutlined,
   ApartmentOutlined,
   CrownOutlined,
-  ContactsOutlined,
   HomeOutlined,
   IdcardOutlined
 } from '@ant-design/icons';
-import type { ColumnsType } from 'antd/es/table';
+
 import type { TabsProps } from 'antd';
 import type { TreeDataNode } from 'antd';
 
 const { TextArea } = Input;
 const { Option } = Select;
-const { TreeNode } = Tree;
+
 
 // 用户信息类型定义
 interface UserInfo {
@@ -92,16 +83,7 @@ interface DepartmentInfo {
   createDate: string;
 }
 
-// 权限信息类型定义
-interface PermissionInfo {
-  key: string;
-  name: string;
-  code: string;
-  type: '菜单' | '按钮' | '接口';
-  description: string;
-  parentId?: string;
-  status: '启用' | '禁用';
-}
+
 
 // 模拟用户数据
 const userData: UserInfo[] = [
@@ -231,8 +213,8 @@ const MemberManagement = () => {
   const [isUserModalVisible, setIsUserModalVisible] = useState(false);
   const [isRoleModalVisible, setIsRoleModalVisible] = useState(false);
   const [isDepartmentModalVisible, setIsDepartmentModalVisible] = useState(false);
-  const [selectedUser, setSelectedUser] = useState<UserInfo | null>(null);
-  const [selectedRole, setSelectedRole] = useState<RoleInfo | null>(null);
+  const [_selectedUser, _setSelectedUser] = useState<UserInfo | null>(null);
+  const [_selectedRole, _setSelectedRole] = useState<RoleInfo | null>(null);
 
   // 权限管理树形数据
   const permissionTreeData: TreeDataNode[] = [
@@ -397,12 +379,12 @@ const MemberManagement = () => {
                 {
                   title: '用户信息',
                   key: 'userInfo',
-                  render: (_, record: UserInfo) => (
+                  render: (_, _record: UserInfo) => (
                     <div className="flex items-center">
                       <Avatar size={40} icon={<UserOutlined />} className="mr-3" />
                       <div>
-                        <div className="font-medium">{record.name}</div>
-                        <div className="text-gray-500 text-sm">{record.email}</div>
+                        <div className="font-medium">{_record.name}</div>
+                        <div className="text-gray-500 text-sm">{_record.email}</div>
                       </div>
                     </div>
                   ),
@@ -458,7 +440,7 @@ const MemberManagement = () => {
                 {
                   title: '操作',
                   key: 'action',
-                  render: (_, record: UserInfo) => (
+                  render: (_, _record: UserInfo) => (
                     <Space size="small">
                       <Button type="link" size="small" icon={<EditOutlined />}>
                         编辑
@@ -555,7 +537,7 @@ const MemberManagement = () => {
               {
                 title: '操作',
                 key: 'action',
-                render: (_, record: RoleInfo) => (
+                render: (_, _record: RoleInfo) => (
                   <Space size="small">
                     <Button type="link" size="small" icon={<EditOutlined />}>
                       编辑
@@ -642,12 +624,12 @@ const MemberManagement = () => {
               {
                 title: '部门信息',
                 key: 'deptInfo',
-                render: (_, record: DepartmentInfo) => (
+                render: (_, _record: DepartmentInfo) => (
                   <div className="flex items-center">
                     <HomeOutlined className="mr-2 text-blue-500" />
                     <div>
-                      <div className="font-medium">{record.name}</div>
-                      <div className="text-gray-500 text-sm">编码: {record.code}</div>
+                      <div className="font-medium">{_record.name}</div>
+                      <div className="text-gray-500 text-sm">编码: {_record.code}</div>
                     </div>
                   </div>
                 ),
@@ -690,7 +672,7 @@ const MemberManagement = () => {
               {
                 title: '操作',
                 key: 'action',
-                render: (_, record: DepartmentInfo) => (
+                render: (_, _record: DepartmentInfo) => (
                   <Space size="small">
                     <Button type="link" size="small" icon={<EditOutlined />}>
                       编辑
